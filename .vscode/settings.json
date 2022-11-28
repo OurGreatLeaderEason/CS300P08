@@ -1,6 +1,7 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "c:\\Users\\eason\\Downloads\\p08core.jar"
+        "c:\\Users\\eason\\Downloads\\p08core.jar",
+        "c:\\Users\\EasonDesktop\\Downloads\\p08core.jar"
     ]
 }

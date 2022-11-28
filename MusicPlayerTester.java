@@ -4,6 +4,8 @@ public class MusicPlayerTester {
         System.out.println("testSongConstructor():  "+testSongConstructor());
         System.out.println("testSongPlayback():  "+testSongPlayback());
         System.out.println("testSongNode():  "+testSongNode());
+        System.out.println("testEnqueue():  "+testEnqueue());
+        System.out.println("testDequeue():  "+testDequeue());
     }
     public static boolean testSongConstructor(){
         MusicPlayerTester t=new MusicPlayerTester();
@@ -82,6 +84,45 @@ public class MusicPlayerTester {
         node3.setNext(node2);
         if(!node3.getNext().equals(node2)){
             System.out.println("setNext() is not working");
+            return false;
+        }
+        return true;
+    }
+
+
+    public static boolean testEnqueue(){
+        Playlist pl=new Playlist();
+        Song a=new Song("Waterloo", "ABBA", "audio\\waterloo.mid");
+        Song b=new Song("Waterloo2", "ABBA", "audio\\waterloo.mid");
+        pl.enqueue(a);
+        if(pl.size()!=1 || !pl.peek().equals(a)){
+            System.out.println("enqueue() isn't working!");
+            return false;
+        }
+        pl.enqueue(b);
+        if(pl.size()!=2 || !pl.peek().equals(a)){
+            System.out.println("enqueue() isn't working!");
+            return false;
+        }
+        System.out.println(pl);
+        return true;
+    }
+
+
+    public static boolean testDequeue(){
+        Playlist pl=new Playlist();
+        Song a=new Song("Waterloo", "ABBA", "audio\\waterloo.mid");
+        Song b=new Song("Waterloo2", "ABBA", "audio\\waterloo.mid");
+        pl.enqueue(a);
+        pl.enqueue(b);
+        Song c=pl.dequeue();
+        if(!pl.peek().equals(b) || pl.size()!=1 || !c.equals(a)){
+            System.out.println("dequeue() isn't working!");
+            return false;
+        }
+        c=pl.dequeue();
+        if(pl.size()!=0 || !c.equals(b)){
+            System.out.println("dequeue() isn't working!");
             return false;
         }
         return true;
