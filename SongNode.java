@@ -1,3 +1,16 @@
+////////////////MusicPlayer300//////////////////////////
+//
+//Title:    P08 MusicPlayer300
+//Course:   CS 300 Fall 2022
+//
+//Author:   Eason Xiao
+//Email:    xiao227@wisc.edu
+//Lecturer: Jeff Nyhoff
+//
+
+/**
+ * A singly-linked node for our linked queue, which contains a Song object
+ */
 public class SongNode {
     private SongNode next;
     private Song song;

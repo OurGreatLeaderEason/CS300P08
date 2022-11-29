@@ -1,6 +1,19 @@
+////////////////MusicPlayer300//////////////////////////
+//
+//Title:    P08 MusicPlayer300
+//Course:   CS 300 Fall 2022
+//
+//Author:   Eason Xiao
+//Email:    xiao227@wisc.edu
+//Lecturer: Jeff Nyhoff
+//
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+
+/**
+ * A FIFO linked queue of SongNodes, conforming to our QueueADT interface.
+ */
 public class Playlist {
     private SongNode first;
     private SongNode last;
@@ -41,18 +54,37 @@ public class Playlist {
         if(this.numSongs==0){
             return null;
         }
-        Song n=this.first.getSong();
-        this.first=this.first.getNext();
-        this.numSongs--;
-        return n;
+        else if(this.numSongs==1){
+            Song n=this.first.getSong();
+            this.first=null;
+            this.last=null;
+            this.numSongs--;
+            return n;
+        }
+        else{
+            Song n=this.first.getSong();
+            this.first=this.first.getNext();
+            this.numSongs--;
+            return n;
+        }
+        
+      
     }
 
     /**
      * Returns the song at the front of the queue without removing it
-     * @return
+     * @return the song that is at the front of the queue, or null if the queue is empty
      */
     public Song peek(){
-        return this.first.getSong();
+        if(this.numSongs==1){
+            return this.last.getSong();
+        }
+        else if(this.numSongs==0){
+            return null;
+        }
+        else{
+            return this.first.getSong();
+        }
     }
 
     /**

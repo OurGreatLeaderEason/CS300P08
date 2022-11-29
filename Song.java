@@ -1,6 +1,19 @@
+////////////////MusicPlayer300//////////////////////////
+//
+//Title:    P08 MusicPlayer300
+//Course:   CS 300 Fall 2022
+//
+//Author:   Eason Xiao
+//Email:    xiao227@wisc.edu
+//Lecturer: Jeff Nyhoff
+//
 import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
+
+/**
+ * A representation of a single Song. Interfaces with the provided AudioUtility class, which uses the javax.sound.sampled package to play audio to your computer's audio output device
+ */
 public class Song{
     private String artist;
     private AudioUtility audioClip;
@@ -86,4 +99,6 @@ public class Song{
         char ch='"';
         return ch+this.title+ch+" ("+minutes+":"+seconds+") by "+this.artist;
     }
+
+    
 }
